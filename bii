@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>혜택온 | 편의점 구독 서비스</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --navy: #0a192f;
+            --accent: #3a86ff;
+            --light-bg: #f8f9fa;
+            --text-dark: #333;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', sans-serif; line-height: 1.6; color: var(--text-dark); background-color: var(--light-bg); }
+        
+        /* Typography */
+        h1, h2, h3 { font-weight: 700; }
+        .container { width: 100%; max-width: 480px; margin: 0 auto; padding: 0 20px; }
+
+        /* 1. Hero Section (Navy Background) */
+        header {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero-tag { font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-bottom: 10px; display: block; }
+        header h1 { font-size: 2.2rem; margin-bottom: 15px; line-height: 1.2; }
+        header p { font-size: 1rem; opacity: 0.8; margin-bottom: 30px; }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(58, 134, 255, 0.4);
+            cursor: pointer;
+            border: none;
+        }
+
+        /* 2. Features Section (3 Columns) */
+        .features { padding: 50px 0; background: var(--white); }
+        .feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .feature-item { text-align: center; padding: 20px; }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+        .feature-item h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .feature-item p { font-size: 0.9rem; color: #666; }
+
+        /* 3. Pricing Section */
+        .pricing { padding: 50px 0; background: var(--light-bg); }
+        .price-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 2px solid transparent;
+            position: relative;
+        }
+        .price-card.recommended { border-color: var(--accent); }
+        .badge {
+            position: absolute; top: -12px; right: 20px;
+            background: var(--accent); color: white;
+            padding: 4px 12px; border-radius: 20px; font-size: 0.8rem;
+        }
+        .price-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .price-value { font-size: 1.8rem; font-weight: 800; color: var(--accent); margin-bottom: 15px; }
+        .price-list { list-style: none; font-size: 0.95rem; color: #555; }
+        .price-list li { margin-bottom: 8px; }
+        .price-list li::before { content: '✓ '; color: var(--accent); font-weight: bold; }
+
+        /* 4. FAQ Section (Accordion) */
+        .faq { padding: 50px 0; background: var(--white); }
+        .faq-item { border-bottom: 1px solid #eee; }
+        .faq-question {
+            width: 100%; padding: 20px 0; text-align: left;
+            background: none; border: none; font-size: 1rem; font-weight: 600;
+            display: flex; justify-content: space-between; cursor: pointer;
+        }
+        .faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;
+            font-size: 0.95rem; color: #666; padding-bottom: 0;
+        }
+        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 20px; }
+
+        /* 5. Bottom CTA */
+        .footer-cta { padding: 60px 20px; text-align: center; background: var(--navy); color: white; }
+        .footer-cta p { margin-bottom: 25px; opacity: 0.8; }
+
+        /* Mobile Optimization */
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.8rem; }
+            .container { padding: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <span class="hero-tag">편의점 구독 서비스 혜택온</span>
+            <h1>[원고의 메인 제목을 입력하세요]</h1>
+            <p>[원고의 서브 문구를 입력하세요]</p>
+            <button class="cta-button" onclick="showDemo()">지금 무료 체험하기</button>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🎁</span>
+                    <h3>[특징 1]</h3>
+                    <p>[특징 1에 대한 상세 설명]</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <h3>[특징 2]</h3>
+                    <p>[특징 2에 대한 상세 설명]</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📱</span>
+                    <h3>[특징 3]</h3>
+                    <p>[특징 3에 대한 상세 설명]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:30px;">[요금제 안내]</h2>
+            
+            <!-- Basic Plan -->
+            <div class="price-card">
+                <h3>[기본 플랜 명]</h3>
+                <div class="price-value">[월 0,000원]</div>
+                <ul class="price-list">
+                    <li>[혜택 1]</li>
+                    <li>[혜택 2]</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Plan -->
+            <div class="price-card recommended">
+                <div class="badge">추천</div>
+                <h3>[추천 플랜 명]</h3>
+                <div class="price-value">[월 0,000원]</div>
+                <ul class="price-list">
+                    <li>[혜택 1]</li>
+                    <li>[혜택 2]</li>
+                    <li>[혜택 3]</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 style="margin-bottom:30px;">자주 묻는 질문</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    [질문 1] <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    [질문 1에 대한 답변 내용이 이곳에 들어갑니다.]
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    [질문 2] <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    [질문 2에 대한 답변 내용이 이곳에 들어갑니다.]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="footer-cta">
+        <div class="container">
+            <p>[마지막 유도 문구]</p>
+            <button class="cta-button" onclick="showDemo()">무료 체험 시작하기</button>
+        </div>
+    </section>
+
+    <script>
+        // FAQ Accordion Logic
+        function toggleFAQ(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+            const icon = element.querySelector('span');
+            icon.textContent = item.classList.contains('active') ? '-' : '+';
+        }
+
+        // Demo Alert Logic
+        function showDemo() {
+            alert("📢 신청 접수(데모) 안내\n\n현재는 데모 페이지입니다.\n실제 신청을 원하시면 원고 내용을 바탕으로 업데이트해 드립니다!");
+        }
+    </script>
+</body>
+</html>
